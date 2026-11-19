@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playlist dos Temas Difíceis · 1ª Fase OAB · Master5 OAB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#15172B; --orange:#D7683D; --sky:#8896BE; --sand:#E8A062; --off:#F3F1EF;
+    --line:#DCD8D3; --muted:#5B5E73;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--off);color:var(--navy);font-family:'Poppins',system-ui,sans-serif;font-size:15px;line-height:1.55}
+  .wrap{max-width:760px;margin:0 auto;padding:28px 18px 64px}
+  h1,h2,.serif{font-family:'Georgia Pro',Georgia,'Times New Roman',serif;font-weight:normal}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  header .brand{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  header .brand b{color:var(--navy);font-weight:600}
+  h1{font-size:34px;line-height:1.15;margin-bottom:10px}
+  h1 em{font-style:italic;color:var(--orange)}
+  .lead{color:var(--muted);max-width:600px}
+
+  .how{margin:26px 0;border:1px solid var(--line);border-radius:14px;background:#fff;padding:18px 20px}
+  .how h2{font-size:20px;margin-bottom:12px}
+  .steps{list-style:none;display:grid;gap:10px}
+  .steps li{display:flex;gap:12px;align-items:flex-start}
+  .steps .n{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--orange);color:var(--orange);font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .tag{font-size:12px;padding:2px 10px;border-radius:99px;background:var(--off);border:1px solid var(--line)}
+
+  .progress{position:sticky;top:0;z-index:5;background:var(--off);padding:12px 0 14px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  .progress .row{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin-bottom:6px}
+  .progress .row b{font-size:15px}
+  .bar{height:8px;border-radius:99px;background:#E4E0DB;overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:var(--orange);transition:width .3s}
+
+  section{margin-top:28px}
+  section h2{font-size:22px;display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+  section h2 small{font-family:'Poppins',sans-serif;font-size:12px;color:var(--muted)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;transition:border-color .2s}
+  .card.done{border-color:var(--sky)}
+  .card .top{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+  .num{font-size:12px;color:var(--orange);font-weight:600;letter-spacing:.04em}
+  .title{font-weight:600;font-size:15px;line-height:1.35}
+  .sub{font-size:13px;color:var(--muted)}
+  .watch{flex:0 0 auto;font-size:13px;font-weight:500;color:var(--navy);text-decoration:none;border:1.5px solid var(--navy);border-radius:99px;padding:5px 14px;white-space:nowrap}
+  .watch:hover{background:var(--navy);color:var(--off)}
+  .checks{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;padding-top:10px;border-top:1px dashed var(--line)}
+  .checks label{display:flex;align-items:center;gap:8px;font-size:13.5px;cursor:pointer;user-select:none}
+  .checks input{appearance:none;width:20px;height:20px;border:1.5px solid var(--sky);border-radius:6px;display:grid;place-content:center;cursor:pointer;background:#fff}
+  .checks input:checked{background:var(--navy);border-color:var(--navy)}
+  .checks input:checked::after{content:"";width:9px;height:5px;border-left:2px solid var(--off);border-bottom:2px solid var(--off);transform:rotate(-45deg) translate(1px,-1px)}
+  .extra{font-size:13px;margin-top:8px}
+  .extra a{color:var(--orange)}
+
+  .done-msg{display:none;margin-top:30px;text-align:center;border:1.5px solid var(--orange);border-radius:14px;padding:20px;background:#fff}
+  .done-msg.show{display:block}
+  .done-msg h2{font-size:22px;margin-bottom:6px}
+  .reset{margin-top:26px;text-align:center}
+  .reset button{font-family:inherit;font-size:12.5px;color:var(--muted);background:none;border:none;text-decoration:underline;cursor:pointer}
+  footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);text-align:center}
+  footer .quote{font-family:Georgia,serif;font-style:italic;font-size:18px;margin-bottom:8px}
+  footer .sig{font-size:13px;color:var(--muted)}
+  footer .sig b{color:var(--orange);font-weight:600}
+  @media (max-width:520px){
+    h1{font-size:28px}
+    .card .top{flex-direction:column}
+    .watch{align-self:flex-start}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <svg width="54" height="54" viewBox="0 0 100 100" aria-label="Master5 OAB">
+    <path d="M50 22 C46 12 36 9 30 12 C36 14 42 18 46 24 Z" fill="#D7683D"/>
+    <path d="M50 22 C54 12 64 9 70 12 C64 14 58 18 54 24 Z" fill="#D7683D"/>
+    <path d="M38 23 A34 34 0 1 0 62 23" fill="none" stroke="#D7683D" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="50" cy="58" r="26" fill="#D7683D"/>
+    <g stroke="#15172B" stroke-width="9" stroke-linecap="round">
+      <line x1="39" y1="47" x2="46" y2="54"/><line x1="61" y1="47" x2="54" y2="54"/>
+      <line x1="39" y1="69" x2="46" y2="62"/><line x1="61" y1="69" x2="54" y2="62"/>
+    </g>
+    <g stroke="#F3F1EF" stroke-width="2.5" stroke-linecap="round">
+      <line x1="50" y1="41" x2="50" y2="46"/><line x1="50" y1="70" x2="50" y2="75"/>
+      <line x1="33" y1="58" x2="38" y2="58"/><line x1="62" y1="58" x2="67" y2="58"/>
+    </g>
+  </svg>
+  <div class="brand"><b>Master5 OAB</b><br>com a Prof. Sa · @sabrinedireito</div>
+</header>
+
+<h1>Playlist dos temas que <em>mais derrubam</em> na 1ª fase</h1>
+<p class="lead">Separei aulas gratuitas do YouTube sobre os temas em que vocês mais travam, e em Processo do Trabalho deixei as minhas aulas. Mas atenção: assistir é só o começo. Ver a aula e não treinar é como ver alguém nadar e achar que já sabe nadar. Marque cada etapa e acompanhe seu progresso.</p>
+
+<div class="how">
+  <h2>Como usar cada aula</h2>
+  <ol class="steps">
+    <li><span class="n">1</span><div><b>Assista à aula</b> com a lei aberta do lado. Marque no seu material os artigos que o professor citar.</div></li>
+    <li><span class="n">2</span><div><b>Resolva 10 questões do tema</b> logo depois, de preferência no mesmo dia. É aqui que o conteúdo vira acerto.</div></li>
+    <li><span class="n">3</span><div><b>Leve só as que errou para o caderno de erros</b> e classifique cada erro:
+      <div class="tags"><span class="tag">erro de conteúdo</span><span class="tag">erro de interpretação</span><span class="tag">erro por pressa</span></div></div></li>
+  </ol>
+</div>
+
+<div class="progress">
+  <div class="row"><span>Seu progresso</span><span><b id="pct">0%</b> · <span id="count">0 de 30 etapas</span></span></div>
+  <div class="bar"><i id="fill"></i></div>
+</div>
+
+<div id="list"></div>
+
+<div class="done-msg" id="doneMsg">
+  <h2 class="serif">Você concluiu a playlist inteira!</h2>
+  <p class="sub">Agora volte ao seu caderno de erros e revise os temas em que mais errou. É nessa revisão que a aprovação se constrói.</p>
+</div>
+
+<div class="reset"><button id="reset" type="button">Recomeçar checklist</button></div>
+
+<footer>
+  <p class="quote">"Quem erra menos, aprende menos; quem erra mais, aprende mais."</p>
+  <p class="sig"><b>Master5 OAB</b> · Prof. Sa · @sabrinedireito</p>
+</footer>
+</div>
+
+<script>
+const blocks = [
+  {nome:"Ética", nota:"a matéria com mais questões na prova", aulas:[
+    {t:"Direitos e prerrogativas do advogado", s:"Aulão de Ética · Prof. Ricardo Monteiro", id:"KprM2nzEEGc"},
+    {t:"Honorários advocatícios", s:"Ética Profissional · 39º Exame", id:"5o7M-t0CO5E"},
+    {t:"Incompatibilidades e impedimentos", s:"Estatuto e Ética · Prof. Arthur Trigueiros", id:"O7183P-fepY"}
+  ]},
+  {nome:"Direito Penal", aulas:[
+    {t:"Sanções penais (teoria da pena)", s:"Prof. Nidal Ahmad", id:"CQbKzXd67cM"},
+    {t:"Crimes em espécie: crimes contra a vida", s:"Direito Penal · 1ª fase", id:"CthwEIIw9Jo",
+     extra:'Quer ir além? <a href="https://www.youtube.com/playlist?list=PLnxEEWSVFtNL3dVLz2SHrxNnqdUqXTrRh" target="_blank" rel="noopener">Playlist completa da parte especial</a>'}
+  ]},
+  {nome:"Direito Civil", aulas:[
+    {t:"Teoria geral das obrigações", s:"1ª Fase OAB 37º · com material de apoio", id:"lBztvw0lIBA"},
+    {t:"Direito de família", s:"Revisão com a Prof. Raquel Bueno", id:"PTWwf_Xxxjg"}
+  ]},
+  {nome:"Direito Constitucional", aulas:[
+    {t:"Remédios constitucionais", s:"Curso temático · 1ª fase", id:"dZHu4wEctjY"}
+  ]},
+  {nome:"Processo Civil", aulas:[
+    {t:"Recursos", s:"1ª Fase OAB 37º · com material de apoio", id:"e34ObxIV8C8"},
+    {t:"Tutelas provisórias", s:"Aula 11 · Parte 1", id:"_XgslQTQeLA"},
+    {t:"Cumprimento de sentença", s:"OAB Express · vídeo curto", id:"AnQGO7Z8dj0"}
+  ]},
+  {nome:"Processo Penal", aulas:[
+    {t:"Prisões e liberdade provisória", s:"OAB 47 · Prof. Lorena Ocampos", id:"_SxQALOyBSk"},
+    {t:"Ação penal", s:"Prof. Thiago Pacheco", id:"f87iO5ulfSg"},
+    {t:"Temas quentes da 1ª fase", s:"Prof. Ivan Marques · Aula 5", id:"xwPJkGUmiWU"}
+  ]},
+  {nome:"Processo do Trabalho", nota:"aulas da Prof. Sa", aulas:[
+    {t:"Playlist completa de Processo do Trabalho", s:"Minhas aulas · assista na ordem da playlist", id:"pl-trabalho-sa",
+     url:"https://www.youtube.com/playlist?list=PLOJOHIa8L2sUHeZCYXyF6SqbF3VPJSU7X", btn:"Abrir playlist ▸"}
+  ]}
+];
+
+const KEY = "master5-playlist-1fase-v1";
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e) { state = {}; }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {} }
+
+const list = document.getElementById("list");
+let n = 0;
+blocks.forEach(b => {
+  const sec = document.createElement("section");
+  sec.innerHTML = `<h2>${b.nome}${b.nota ? `<small>${b.nota}</small>` : ""}</h2>`;
+  b.aulas.forEach(a => {
+    n++;
+    const num = String(n).padStart(2,"0");
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.id = a.id;
+    card.innerHTML = `
+      <div class="top">
+        <div><div class="num">AULA ${num}</div><div class="title">${a.t}</div><div class="sub">${a.s}</div></div>
+        <a class="watch" href="${a.url || 'https://www.youtube.com/watch?v=' + a.id}" target="_blank" rel="noopener">${a.btn || 'Assistir ▸'}</a>
+      </div>
+      ${a.extra ? `<div class="extra">${a.extra}</div>` : ""}
+      <div class="checks">
+        <label><input type="checkbox" data-k="${a.id}-v"> Assisti à aula</label>
+        <label><input type="checkbox" data-k="${a.id}-q"> Fiz 10 questões</label>
+      </div>`;
+    sec.appendChild(card);
+  });
+  list.appendChild(sec);
+});
+
+const boxes = [...document.querySelectorAll('.checks input')];
+function render(){
+  let done = 0;
+  boxes.forEach(bx => { bx.checked = !!state[bx.dataset.k]; if (bx.checked) done++; });
+  document.querySelectorAll('.card').forEach(c => {
+    const id = c.dataset.id;
+    c.classList.toggle('done', !!(state[id+"-v"] && state[id+"-q"]));
+  });
+  const total = boxes.length;
+  const pct = Math.round(done / total * 100);
+  document.getElementById('pct').textContent = pct + "%";
+  document.getElementById('count').textContent = `${done} de ${total} etapas`;
+  document.getElementById('fill').style.width = pct + "%";
+  document.getElementById('doneMsg').classList.toggle('show', done === total);
+}
+boxes.forEach(bx => bx.addEventListener('change', () => { state[bx.dataset.k] = bx.checked; save(); render(); }));
+
+const resetBtn = document.getElementById('reset');
+let armed = false;
+resetBtn.addEventListener('click', () => {
+  if (!armed) { armed = true; resetBtn.textContent = "Toque de novo para confirmar"; setTimeout(()=>{armed=false; resetBtn.textContent="Recomeçar checklist";}, 3000); return; }
+  state = {}; save(); render(); armed = false; resetBtn.textContent = "Recomeçar checklist";
+});
+render();
+</script>
+</body>
+</html>
